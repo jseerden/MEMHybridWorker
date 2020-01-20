@@ -17,17 +17,19 @@ To connect devices to Log Analytics and register them as Hybrid Runbook Workers 
 
 ### Using the prepackaged .intunewin Win32 app.
 #### Program
-Install command: PowerShell.exe -ExecutionPolicy Bypass -File "Install-HybridWorker.ps1 -workspaceId `<Log Analytics Workspace Id>` -workspaceKey `<Log Analytics Workspace Key>` -azAutomationUrl `<Azure Automation Url>` -azAutomationKey `<Azure Automation Primary Key>`
-Uninstall command: PowerShell.exe -ExecutionPolicy Bypass -File "Uninstall-HybridWorker.ps1" -azAutomationUrl `<Azure Automation Url>` -azAutomationKey `<Azure Automation Primary Key>`
-Install behavior: System
+Install command: `PowerShell.exe -ExecutionPolicy Bypass -File "Install-HybridWorker.ps1" -workspaceId <Log Analytics Workspace Id> -workspaceKey <Log Analytics Workspace Key> -azAutomationUrl <Azure Automation Url> -azAutomationKey <Azure Automation Primary Key>`
+
+Uninstall command: `PowerShell.exe -ExecutionPolicy Bypass -File "Uninstall-HybridWorker.ps1" -azAutomationUrl <Azure Automation Url> -azAutomationKey <Azure Automation Primary Key>`
+
+Install behavior: System  
 Device restart behavior: No specific action
 
 ### Detection rules:
 When the device is successfully registered as Hybrid Runbook Worker, a new registry key will be present.
 
-Rules format: Manually configure detection rules
-Rule type: Registry
-Key path: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker
+Rules format: Manually configure detection rules  
+Rule type: Registry  
+Key path: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker  
 Detection method: Key exists
 
 ## Win32 App Package creation cmdlet:
